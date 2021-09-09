@@ -9,7 +9,7 @@
     
     NSString* scheme = [command.arguments objectAtIndex:0];
     
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:scheme]]) {
+    if (![scheme isEqual:[NSNull null]] && [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:scheme]]) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:(true)];
     }
     else {
